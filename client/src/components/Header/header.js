@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import FontAwesome from "react-fontawesome";
 import { Link } from "react-router-dom";
 import Nav from "./Sidenav/sidenav";
 
 class Header extends Component {
   state = {
-    showNav: true
+    showNav: false
   };
 
   onHideNav = () => {
@@ -15,22 +14,35 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <div>
-          <FontAwesome
-            name="bars"
-            onClick={()=> this.setState({showNav:true})}
-            style={{
-              color: "#000000",
-              padding: "10px",
-              cursor: "pointer"
-            }}
-          />
-        </div>
         <Nav showNav={this.state.showNav} onHideNav={() => this.onHideNav()} />
 
-        <Link to="/" className="logo">
-          Restaurant Review
-        </Link>
+        <nav>
+          <div className="nav-wrapper">
+            <Link to="/" className="brand-logo center">
+              Restaurant Review
+            </Link>
+
+              <i
+                className="material-icons left"
+                onClick={() => this.setState({ showNav: true })}
+                style={{
+                  cursor: "pointer",
+                  paddingLeft: "10px"
+                }}
+              >
+                menu
+              </i>
+            <ul id="nav-mobile" className="left hide-on-med-and-down">
+
+              <li>
+                <a href="badges.html">Components</a>
+              </li>
+              <li>
+                <a href="collapsible.html">JavaScript</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
       </header>
     );
   }

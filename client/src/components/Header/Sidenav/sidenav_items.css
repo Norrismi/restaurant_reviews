@@ -1,0 +1,9 @@
+.navText{
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+}
+
+.navIcon{
+    padding-right: 10px;
+}
