@@ -1,12 +1,21 @@
 import React from 'react'
 import {Switch,Route} from 'react-router-dom'
 
+import Home from './components/Home/home'
+import Layout from './hoc/layout'
+
 
 const Routes = () => {
     return (
-        <div>
-            Hello can you see me
-        </div>
+
+        <Layout>
+            <div>
+            <Switch>
+                <Route path='/' exact component={Home}/>
+
+            </Switch>
+            </div>
+        </Layout>
     );
 }
 
