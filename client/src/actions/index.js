@@ -24,10 +24,12 @@ export function getRestaurantReviewer(id) {
     request.then(({ data }) => {
       let restaurant = data;
 
+    
+
       axios
         .get(`/api/getReviewer?id=${restaurant.ownerId}`)
         .then(({ data }) => {
-          let response = {
+          let restaurantRes = {
             restaurant,
             reviewer: data
           };
@@ -36,7 +38,7 @@ export function getRestaurantReviewer(id) {
 
           dispatch({
             type: "GET_RESTAURANT_REVIEWER",
-            payload: null
+            payload: restaurantRes
           });
         });
     });

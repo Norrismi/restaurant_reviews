@@ -9,50 +9,49 @@ class RestaurantView extends Component {
     }
 
 
-    // renderRestaurant = (restaurants) => (
-    //     restaurants.restaurant ?
-    //     <div className='rr-container'>
-    //         <div className='rr-header'>
-    //             <h2>{restaurants.restaurant.name}</h2>
-    //             <h5>{restaurants.restaurant.author}</h5>
-    //             <div className='rr-reviewer'>
-    //                 <span>Review by:</span>{restaurants.reviewer.name} {restaurants.reviewer.lastname}
+    renderRestaurant = (restaurants) => (
+        restaurants.restaurant ?
+        <div className='rr-container'>
+            <div className='rr-header'>
+                <h2>{restaurants.restaurant.name}</h2>
+                <h5>{restaurants.restaurant.author}</h5>
+                <div className='rr-reviewer'>
+                    <span>Review by:</span>{restaurants.reviewer.name} {restaurants.reviewer.lastname}
 
-    //             </div>
-    //         </div>
-    //         <div className='rr-review'>
-    //             {restaurants.restaurant.review}
+                </div>
+            </div>
+            <div className='rr-review'>
+                {restaurants.restaurant.review}
 
-    //         </div>
-    //         <div className='rr-box'>
-    //             <div className='left'>
-    //                 <div>
-    //                     <span>Pages:</span> {restaurants.reataurant.pages}
-    //                 </div>
-    //                 <div>
-    //                     <span>Price:</span> {restaurants.reataurant.price}
-    //                 </div>
-    //             </div>
-    //             <div className='right'>
-    //                 <span>Rating</span> 
-    //                 <div>
-    //                 {restaurants.reataurant.rating}/5
-    //                 </div>
-    //             </div>
+            </div>
+            <div className='rr-box'>
+                <div className='left'>
+                    <div>
+                        {/* <span>Pages:</span> {restaurants.reataurant.pages} */}
+                    </div>
+                    <div>
+                        {/* <span>Price:</span> {restaurants.reataurant.price} */}
+                    </div>
+                </div>
+                <div className='right'>
+                    <span>Rating</span> 
+                    <div>
+                    {restaurants.restaurant.rating}/5
+                    </div>
+                </div>
 
-    //         </div>
-    //     </div>
-    //     :null
-    // )
+            </div>
+        </div>
+        :null
+    )
 
 
     render() {
-        console.log(this.props)
        let restaurants = this.props.restaurant;
         return (
             <div>
                 Hello
-                {/* {this.renderRestaurant(restaurants)} */}
+                {this.renderRestaurant(restaurants)}
             </div>
         );
     }
