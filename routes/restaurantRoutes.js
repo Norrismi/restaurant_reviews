@@ -1,4 +1,5 @@
 const { Restaurant } = require("../models/restaurant");
+const { User } = require("../models/user");
 
 module.exports = app => {
   app.get("/api/getRestaurant", (req, res) => {
@@ -40,6 +41,18 @@ module.exports = app => {
       res.status(200).json({
         post: true,
         restaurantId: doc._id
+      });
+    });
+  });
+
+  app.get("/api/getReviewer", (req, res) => {
+    let id = req.query.id;
+
+    User.findById(id, (err, doc) => {
+      if (err) return res.status(400).send(err);
+      res.send({
+        name: doc.name,
+        lastname: doc.lastname
       });
     });
   });

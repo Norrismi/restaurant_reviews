@@ -40,17 +40,7 @@ module.exports = app => {
     });
   });
 
-  app.get("/api/getReviewer", (req, res) => {
-    let id = req.query.id;
-
-    User.findById(id, (err, doc) => {
-      if (err) return res.status(400).send(err);
-      res.send({
-        name: doc.name,
-        lastname: doc.lastname
-      });
-    });
-  });
+ 
 
   app.get("/api/user", (req, res) => {
     User.find({}, (err, users) => {
