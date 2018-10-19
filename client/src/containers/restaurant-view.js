@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {getRestaurantReviewer} from '../actions/index'
+import {getRestaurantReviewer,clearRestaurantReview} from '../actions/index'
 import {connect} from 'react-redux'
 
 class RestaurantView extends Component {
@@ -8,35 +8,39 @@ class RestaurantView extends Component {
         this.props.dispatch(getRestaurantReviewer(this.props.match.params.id))
     }
 
+    componentWillUnmount(){
+        this.props.dispatch(clearRestaurantReview())
+    }
 
-    renderRestaurant = (restaurants) => (
-        restaurants.restaurant ?
+
+    renderRestaurant = (props) => (
+        props.restaurant ?
         <div className='rr-container'>
             <div className='rr-header'>
-                <h2>{restaurants.restaurant.name}</h2>
-                <h5>{restaurants.restaurant.author}</h5>
+                <h2>{props.restaurant.name}</h2>
+                <h5>{props.restaurant.author}</h5>
                 <div className='rr-reviewer'>
-                    <span>Review by:</span>{restaurants.reviewer.name} {restaurants.reviewer.lastname}
+                    <span>Review by:</span>{props.reviewer.name} {props.reviewer.lastname}
 
                 </div>
             </div>
             <div className='rr-review'>
-                {restaurants.restaurant.review}
+                {props.restaurant.review}
 
             </div>
             <div className='rr-box'>
                 <div className='left'>
                     <div>
-                        {/* <span>Pages:</span> {restaurants.reataurant.pages} */}
+                        {/* <span>Pages:</span> {props.reataurant.pages} */}
                     </div>
                     <div>
-                        {/* <span>Price:</span> {restaurants.reataurant.price} */}
+                        {/* <span>Price:</span> {props.reataurant.price} */}
                     </div>
                 </div>
                 <div className='right'>
                     <span>Rating</span> 
                     <div>
-                    {restaurants.restaurant.rating}/5
+                    {props.restaurant.rating}/5
                     </div>
                 </div>
 
@@ -47,11 +51,11 @@ class RestaurantView extends Component {
 
 
     render() {
-       let restaurants = this.props.restaurant;
+       let props = this.props.restaurant;
         return (
             <div>
                 Hello
-                {this.renderRestaurant(restaurants)}
+                {this.renderRestaurant(props)}
             </div>
         );
     }

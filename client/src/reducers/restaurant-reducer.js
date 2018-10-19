@@ -9,6 +9,13 @@ export default function(state = {}, action) {
         restaurant: action.payload.restaurant,
         reviewer: action.payload.reviewer
       };
+
+      case 'CLEAR_RESTAURANT_REVIEW':
+      return{
+        ...state,
+        restaurant: action.payload.restaurant,
+        reviewer: action.payload.reviewer
+      }
     default:
       return state;
   }

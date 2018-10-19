@@ -21,14 +21,12 @@ export function getRestaurantReviewer(id) {
   const request = axios.get(`/api/getRestaurant?id=${id}`);
 
   return dispatch => {
-    request.then(({ data }) => {
+    request.then(({data})=> {
       let restaurant = data;
-
-    
 
       axios
         .get(`/api/getReviewer?id=${restaurant.ownerId}`)
-        .then(({ data }) => {
+        .then(({data})=> {
           let restaurantRes = {
             restaurant,
             reviewer: data
@@ -44,3 +42,28 @@ export function getRestaurantReviewer(id) {
     });
   };
 }
+
+export function clearRestaurantReview(){
+  return{
+    type: 'CLEAR_RESTAURANT_REVIEW',
+    payload: {
+      restaurant: {},
+      reviewer:{}
+    }
+  }
+
+}
+
+/*==========USER============*/
+
+export function loginUser({email, password}){
+  const request = axios.post(`/api/login`,{email,password})
+  .then(res => res.data)
+
+  return{
+    type: 'LOGIN_USER',
+    payload:request
+  }
+}
+
+
