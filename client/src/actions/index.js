@@ -66,4 +66,13 @@ export function loginUser({email, password}){
   }
 }
 
+export function auth(){
+  const request = axios.get(`/api/auth`)
+    .then(res => res.data)
+  return{
+    type: 'USER_AUTH',
+    payload: request
+  }
+}
+
 
