@@ -1,5 +1,6 @@
 const { User } = require("../models/user");
 const { auth } = require("../middleware/auth");
+const { Restaurant } = require("../models/restaurant");
 
 module.exports = app => {
   app.post("/api/register", (req, res) => {
@@ -10,6 +11,20 @@ module.exports = app => {
       res.status(200).json({
         success: true,
         user: doc
+      });
+    });
+  });
+
+
+  ///////////////////////
+  app.post("/api/restaurant", (req, res) => {
+    const restaurant = new Restaurant(req.body);
+
+    restaurant.save((err, doc) => {
+      if (err) return res.status(400).send(err);
+      res.status(200).json({
+        post: true,
+        restaurantId: doc._id
       });
     });
   });

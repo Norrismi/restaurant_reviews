@@ -19,15 +19,15 @@ class HomeContainer extends Component {
     )
 
     loadmore = () => {
-        let count = this.props.restaurant.list.length;
-        this.props.dispatch(getRestaurant(1,count,'desc',this.props.restaurant.list))
+        let count = this.props.restaurants.list.length;
+        this.props.dispatch(getRestaurant(1,count,'desc',this.props.restaurants.list))
     }
 
 
     render() {
         return (
             <div>
-               {this.renderItems(this.props.restaurant)}
+               {this.renderItems(this.props.restaurants)}
                <div className='loadmore'
                onClick={this.loadmore}>
                Load More</div>
@@ -38,7 +38,7 @@ class HomeContainer extends Component {
 
 function mapStateToProps(state){
     return {
-        restaurant: state.restaurant
+        restaurants: state.restaurants
     }
 }
 

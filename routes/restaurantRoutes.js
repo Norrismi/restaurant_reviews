@@ -2,7 +2,7 @@ const { Restaurant } = require("../models/restaurant");
 const { User } = require("../models/user");
 
 module.exports = app => {
-  
+
   app.get("/api/getRestaurant", (req, res) => {
     let id = req.query.id;
 
@@ -34,6 +34,9 @@ module.exports = app => {
     });
   });
 
+
+
+  //////////////////
   app.post("/api/restaurant", (req, res) => {
     const restaurant = new Restaurant(req.body);
 

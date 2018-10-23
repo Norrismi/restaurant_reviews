@@ -54,6 +54,16 @@ export function clearRestaurantReview(){
 
 }
 
+export function addRestaurant(restaurant){
+  const request = axios.post('/api/restaurant',restaurant)
+  .then(res => res.data)
+
+  return{
+    type: 'ADD_RESTAURANT',
+    payload:request
+  }
+}
+
 /*==========USER============*/
 
 export function loginUser({email, password}){

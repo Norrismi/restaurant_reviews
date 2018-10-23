@@ -16,6 +16,12 @@ export default function(state = {}, action) {
         restaurant: action.payload.restaurant,
         reviewer: action.payload.reviewer
       }
+
+      case 'ADD_RESTAURANT':
+      return{
+        ...state,
+        newRestaurant: action.payload
+      }
     default:
       return state;
   }

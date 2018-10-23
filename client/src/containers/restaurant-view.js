@@ -40,14 +40,14 @@ class RestaurantView extends Component {
     ) : null;
 
   render() {
-    let props = this.props.restaurant;
+    let props = this.props.restaurants;
     return <div>{this.renderRestaurant(props)}</div>;
   }
 }
 
 const mapStateToProps = state => {
   return {
-    restaurant: state.restaurant
+    restaurants: state.restaurants
   };
 };
 
