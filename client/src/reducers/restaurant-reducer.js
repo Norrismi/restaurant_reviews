@@ -10,18 +10,23 @@ export default function(state = {}, action) {
         reviewer: action.payload.reviewer
       };
 
-      case 'CLEAR_RESTAURANT_REVIEW':
-      return{
+    case "CLEAR_RESTAURANT_REVIEW":
+      return {
         ...state,
         restaurant: action.payload.restaurant,
         reviewer: action.payload.reviewer
-      }
+      };
 
-      case 'ADD_RESTAURANT':
-      return{
+    case "ADD_RESTAURANT":
+      return {
         ...state,
         newRestaurant: action.payload
-      }
+      };
+    case "CLEAR_RESTAURANT_SUBMISSION":
+      return {
+        ...state,
+        newRestaurant: action.payload
+      };
     default:
       return state;
   }

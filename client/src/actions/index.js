@@ -21,18 +21,16 @@ export function getRestaurantReviewer(id) {
   const request = axios.get(`/api/getRestaurant?id=${id}`);
 
   return dispatch => {
-    request.then(({data})=> {
+    request.then(({ data }) => {
       let restaurant = data;
 
       axios
         .get(`/api/getReviewer?id=${restaurant.ownerId}`)
-        .then(({data})=> {
+        .then(({ data }) => {
           let restaurantRes = {
             restaurant,
             reviewer: data
           };
-
-         
 
           dispatch({
             type: "GET_RESTAURANT_REVIEWER",
@@ -43,46 +41,51 @@ export function getRestaurantReviewer(id) {
   };
 }
 
-export function clearRestaurantReview(){
-  return{
-    type: 'CLEAR_RESTAURANT_REVIEW',
+export function clearRestaurantReview() {
+  return {
+    type: "CLEAR_RESTAURANT_REVIEW",
     payload: {
       restaurant: {},
-      reviewer:{}
+      reviewer: {}
     }
-  }
-
+  };
 }
 
-export function addRestaurant(restaurant){
-  const request = axios.post('/api/restaurant',restaurant)
-  .then(res => res.data)
+export function addRestaurant(restaurant) {
+  const request = axios
+    .post("/api/restaurant", restaurant)
+    .then(res => res.data);
 
-  return{
-    type: 'ADD_RESTAURANT',
-    payload:request
-  }
+  return {
+    type: "ADD_RESTAURANT",
+    payload: request
+  };
+}
+
+export function clearRestaurantSubmission() {
+  return {
+    type: "CLEAR_RESTAURANT_SUBMISSION",
+    payload: {}
+  };
 }
 
 /*==========USER============*/
 
-export function loginUser({email, password}){
-  const request = axios.post(`/api/login`,{email,password})
-  .then(res => res.data)
+export function loginUser({ email, password }) {
+  const request = axios
+    .post(`/api/login`, { email, password })
+    .then(res => res.data);
 
-  return{
-    type: 'LOGIN_USER',
-    payload:request
-  }
-}
-
-export function auth(){
-  const request = axios.get(`/api/auth`)
-    .then(res => res.data)
-  return{
-    type: 'USER_AUTH',
+  return {
+    type: "LOGIN_USER",
     payload: request
-  }
+  };
 }
 
-
+export function auth() {
+  const request = axios.get(`/api/auth`).then(res => res.data);
+  return {
+    type: "USER_AUTH",
+    payload: request
+  };
+}
