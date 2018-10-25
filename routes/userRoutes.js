@@ -57,7 +57,7 @@ module.exports = app => {
 
  
 
-  app.get("/api/user", (req, res) => {
+  app.get("/api/users", (req, res) => {
     User.find({}, (err, users) => {
       if (err) return res.status(400).send(err);
       res.status(200).send(users);

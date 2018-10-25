@@ -10,6 +10,7 @@ import User from './components/Admin'
 import AddRestaurant from './containers/Admin/add'
 import UserPosts from './components/Admin/userPosts'
 import EditRestaurant from './containers/Admin/edit'
+import Register from './containers/Admin/register'
 
 const Routes = () => {
   return (
@@ -23,6 +24,7 @@ const Routes = () => {
           <Route path="/restaurant/:id" exact component={Auth(BookView,null)} />
           <Route path="/user/user-reviews" exact component={Auth(UserPosts,true)} />
           <Route path="/user/edit-post/:id" exact component={Auth(EditRestaurant,true)} />
+          <Route path="/user/register" exact component={Auth(Register,true)} />
         </Switch>
       </div>
     </Layout>
