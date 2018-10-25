@@ -69,7 +69,7 @@ module.exports = app => {
       (err, doc) => {
         if (err) return res.status(400).send(err);
         res.json({
-          sucess: true,
+          success: true,
           doc
         });
       }

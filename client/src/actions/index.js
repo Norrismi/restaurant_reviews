@@ -69,6 +69,48 @@ export function clearRestaurantSubmission() {
   };
 }
 
+export function getRestaurants(id) {
+  const request = axios
+    .get(`/api/getRestaurant?id=${id}`)
+    .then(res => res.data);
+
+  return {
+    type: "GET_RESTAURANTS",
+    payload: request
+  };
+}
+
+export function updateRestaurant(data) {
+  const request = axios
+    .post(`/api/restaurant_update`, data)
+    .then(res => res.data);
+  return {
+    type: "UPDATE_RESTAURANT",
+    payload: request
+  };
+}
+
+export function deleteRestaurant(id) {
+  const request = axios
+    .delete(`/api/delete_restaurant?id=${id}`)
+    .then(res => res.data);
+  return {
+    type: "DELETE_RESTAURANT",
+    payload: request
+  };
+}
+
+export function clearRestaurant() {
+  return {
+    type: "CLEAR_RESTAURANT",
+    payload: {
+      restaurant: null,
+      updateRestaurant: false,
+      postDeleted: false
+    }
+  };
+}
+
 /*==========USER============*/
 
 export function loginUser({ email, password }) {
@@ -86,6 +128,16 @@ export function auth() {
   const request = axios.get(`/api/auth`).then(res => res.data);
   return {
     type: "USER_AUTH",
+    payload: request
+  };
+}
+
+export function getUserPosts(userId) {
+  const request = axios
+    .get(`/api/user_posts?user=${userId}`)
+    .then(res => res.data);
+  return {
+    type: "GET_USER_POSTS",
     payload: request
   };
 }
