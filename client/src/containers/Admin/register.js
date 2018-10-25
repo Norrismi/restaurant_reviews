@@ -74,7 +74,6 @@ class Register extends PureComponent {
   //     :null
 
   render() {
-    console.log(this.props);
     let user = this.props.user;
     return (
       <div className="">
@@ -117,10 +116,7 @@ class Register extends PureComponent {
           <button className="btn" type="submit">
             Add user
           </button>
-          <div className="error" >
-          
-          {this.state.error}
-          </div>
+          <div className="error">{this.state.error}</div>
 
           {/* {this.state.error 
             ?(

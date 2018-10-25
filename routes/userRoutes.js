@@ -7,7 +7,7 @@ module.exports = app => {
     const user = new User(req.body);
 
     user.save((err, doc) => {
-      if (err) return res.send("failed");
+      if (err) return res.json({success: false});
       res.status(200).json({
         success: true,
         user: doc
