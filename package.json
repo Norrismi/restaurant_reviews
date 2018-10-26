@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "engines": {
+    "yarn": "1.10.1",
+    "node": "10.0.0"
+  },
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
