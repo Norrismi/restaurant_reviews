@@ -121,7 +121,7 @@ class EditRestaurant extends PureComponent {
 
           {data.updateRestaurant ? (
             <div>
-              <Link to={`restaurants/${data.restaurant._id}`}>
+              <Link to={`/restaurant/${data.restaurant._id}`}>
                 Your Edit was successful!
               </Link>
             </div>
