@@ -44,13 +44,13 @@ class EditRestaurant extends PureComponent {
     this.props.dispatch(deleteRestaurant(this.props.match.params.id));
   };
   redirectUser = () => {
-      setTimeout(() => {
-          this.props.history.push('/user/user-reviews')
-      }, 1000);
-  }
+    setTimeout(() => {
+      this.props.history.push("/user/user-reviews");
+    }, 1000);
+  };
 
-  componentWillUnmount(){
-      this.props.dispatch(clearRestaurant())
+  componentWillUnmount() {
+    this.props.dispatch(clearRestaurant());
   }
 
   //   showAdmendRestaurant = updateRestaurant =>
@@ -116,6 +116,7 @@ class EditRestaurant extends PureComponent {
               <option value="3">3</option>
               <option value="4">4</option>
               <option value="5">5</option>
+              <option value="6">6</option>
             </select>
           </div>
 
